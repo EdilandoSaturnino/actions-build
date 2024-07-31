@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '18'  
 
       - name: Install dependencies
         run: npm install
@@ -24,16 +24,20 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Deploy to build-repo
+      - name: List dist directory
+        run: ls -la dist
+
+      - name: Checkout build-repo
         uses: actions/checkout@v3
         with:
           repository: EdilandoSaturnino/build-repo
           token: ${{ secrets.GITHUB_TOKEN }}
           path: build-repo
+          ref: main 
 
       - name: Copy build files
         run: |
-          cp -r build/* build-repo/
+          cp -r dist/* build-repo/
 
       - name: Commit and push build files
         run: |
@@ -42,4 +46,4 @@ jobs:
           git config user.email "github-actions@github.com"
           git add .
           git commit -m "Deploy build files"
-          git push origin main
+          git push origin main  # Ou a branch correta do repositório de build
