@@ -30,7 +30,7 @@ jobs:
       - name: Checkout build-repo
         uses: actions/checkout@v3
         with:
-          repository: usuario/build-repo
+          repository: EdilandoSaturnino/build-repo
           token: ${{ secrets.BUILD_REPO_TOKEN }}
           path: build-repo
           ref: main 
