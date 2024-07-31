@@ -31,7 +31,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: EdilandoSaturnino/build-repo
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.BUILD_REPO_TOKEN }}
           path: build-repo
           ref: main 
 
