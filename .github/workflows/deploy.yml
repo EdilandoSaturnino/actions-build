@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  
+          node-version: '18' 
 
       - name: Install dependencies
         run: npm install
@@ -30,7 +30,7 @@ jobs:
       - name: Checkout build-repo
         uses: actions/checkout@v3
         with:
-          repository: EdilandoSaturnino/build-repo
+          repository: usuario/build-repo
           token: ${{ secrets.BUILD_REPO_TOKEN }}
           path: build-repo
           ref: main 
@@ -47,3 +47,5 @@ jobs:
           git add .
           git commit -m "Deploy build files"
           git push origin main  # Ou a branch correta do repositório de build
+        env:
+          GIT_TOKEN: ${{ secrets.BUILD_REPO_TOKEN }}
