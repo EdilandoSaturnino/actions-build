@@ -46,6 +46,6 @@ jobs:
           git config user.email "github-actions@github.com"
           git add .
           git commit -m "Deploy build files"
-          git push origin main  # Ou a branch correta do repositório de build
+          git push origin main
         env:
           GIT_TOKEN: ${{ secrets.BUILD_REPO_TOKEN }}
